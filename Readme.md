@@ -62,11 +62,11 @@ _main_/_________________________________________________________________________
                                                              |      git commit -m "The fucking functions."   - Creamos la entrga.
                                                              |      git push origin worker2                  - Eventualmente, sincronizamos las entregas de nuestra rama local con nuestra rama remota.
                                                              |
-                                                             * Worker2 inicia la tarea d despues de recibir la a desde devel
-                                                               git switch worker2                       - Nos aseguramos de tener worker2 como rama activa.
-                                                               git add fuckingCode.js                   - Seleccionamos los archivos de la entrega.
-                                                               git commit -m "The fucking functions."   - Creamos la entrga.
-                                                               git push origin worker2                  - Eventualmente, sincronizamos las entregas de nuestra rama local con nuestra rama remota.
+                                                             * Worker1 inicia la tarea c despues de recibir la b desde devel
+                                                               git switch worker1                       - Nos aseguramos de tener worker2 como rama activa.
+                                                               git add fuckingLibrary.js                - Seleccionamos los archivos de la entrega.
+                                                               git commit -m "The fucking library."     - Creamos la entrga.
+                                                               git push origin worker1                  - Eventualmente, sincronizamos las entregas de nuestra rama local con nuestra rama remota.
 
 ```
 ## Resumiendo
