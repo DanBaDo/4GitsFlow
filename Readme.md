@@ -57,7 +57,7 @@ _main_/_________________________________________________________________________
                                                              |    |      |      (3) Worker2 termina tarea d y pasa sus commits a devel.
                                                              |    |      |         Tras hacer la última entrega en la rama local, copia los commits en devel.
                                                              |    |      |         git switch devel          - Nos aseguramos de tener devel como rama activa.
-                                                             |    |      |         git pull origin worker1   - Enviamos nuestros commits a devel.
+                                                             |    |      |         git pull origin worker2   - Enviamos nuestros commits a devel.
                                                              |    |      |         git push origin devel     - Sincronizamos la rama devel local con la remota.
                                                              |    |      |         git switch worker2        - Regresamos a nuestra rama.
                                                              |    |      |
