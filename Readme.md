@@ -11,6 +11,12 @@ Nuestro Maestro Jedi, Manu Martínez, nos propone un métodología basada en su 
 
 Esto es un intento de hacer un mapa para encontrarnos y no perdernos.
 
+## Notas
+
+* Cuando pongo ```git switch``` puedes usar ```git checkout```. Para el caso es lo mismo.
+* Sí, muchos de los ```git switch``` son innecesarios. Pero asegurate de estar en la rama correcta antes de hacer algo si no quieres liarla parda.
+
+
 ## Con dibujitos
 
 ```
@@ -35,46 +41,55 @@ Esto es un intento de hacer un mapa para encontrarnos y no perdernos.
 _main_/________________________________________________________________________________________________\abcd  -  Welldone! 👌
 
                                                              |    |      |       |     |         |      |
-                                                             |    |      |       |     |         |      * Todo está listo. Consolidamos todas las entregas de devel en main:
+                                                             |    |      |       |     |         |     (4) Todo está listo. Consolidamos todas las entregas de devel en main:
                                                              |    |      |       |     |         |        git switch main         - Nos aseguramos de tener main como rama activa.
                                                              |    |      |       |     |         |        git pull origin devel   - Traemos a main los commit de devel.
                                                              |    |      |       |     |         |        git push origin main    - Sincronizamos la rama remota para publicar los cámbios. 🍻
                                                              |    |      |       |     |         |
-                                                             |    |      |       |     |         * Worker2 mantiene su rama sincronizada con los commits de devel antes de iniciar nuevas tareas.
+                                                             |    |      |       |     |        (1) Worker2 mantiene su rama sincronizada con los commits de devel antes de iniciar nuevas tareas.
                                                              |    |      |       |     |           git switch worker2      - Nos aseguramos de tener worker2 como rama activa.
                                                              |    |      |       |     |           git pull origin devel   - Traemos a worker2 los commits entregados en devel.
                                                              |    |      |       |     |
-                                                             |    |      |       |     * Worker1 mantiene su rama actualizada con los commits de devel antes de iniciar nuevas tareas.
+                                                             |    |      |       |    (1) Worker1 mantiene su rama actualizada con los commits de devel antes de iniciar nuevas tareas.
                                                              |    |      |       |       git switch worker1      - Nos aseguramos de tener worker1 como rama activa.
                                                              |    |      |       |       git pull origin devel   - Traemos a worker1 los commits entregados en devel.
                                                              |    |      |       |
-                                                             |    |      |       * Worker2 termina tarea d y pasa sus commits a devel.
-                                                             |    |      |         git switch worker2      - Nos aseguramos de tener worker2 como rama activa.
-                                                             |    |      |         git push origin devel   - Enviamos nuestros commits a devel
+                                                             |    |      |      (3) Worker2 termina tarea d y pasa sus commits a devel.
+                                                             |    |      |         Tras hacer la última entrega en la rama local, copia los commits en devel.
+                                                             |    |      |         git switch devel          - Nos aseguramos de tener devel como rama activa.
+                                                             |    |      |         git pull origin worker1   - Enviamos nuestros commits a devel.
+                                                             |    |      |         git push origin devel     - Sincronizamos la rama devel local con la remota.
+                                                             |    |      |         git switch worker2        - Regresamos a nuestra rama.
                                                              |    |      |
-                                                             |    |      * Worker1 termina tarea c y pasa sus commits a devel.
-                                                             |    |        git switch worker2      - Nos aseguramos de tener worker2 como rama activa.
-                                                             |    |        git push origin devel   - Enviamos nuestros commits a devel
+                                                             |    |     (3) Worker1 termina tarea c y pasa sus commits a devel.
+                                                             |    |        Tras hacer la última entrega en la rama local, copia los commits en devel.
+                                                             |    |        git switch devel          - Nos aseguramos de tener devel como rama activa.
+                                                             |    |        git pull origin worker1   - Enviamos nuestros commits a la rama devel local.
+                                                             |    |        git push origin devel     - Sincronizamos la rama devel local con la remota.
+                                                             |    |        git switch worker1        - Regresamos a nuestra rama.
                                                              |    |
-                                                             |    * Worker2 inicia la tarea d despues de recibir la a desde devel
+                                                             |   (2) Worker2 inicia la tarea d despues de recibir la a desde devel.
+                                                             |      Repite estos pasos para entregar cada progreso a lo largo de la tarea.
                                                              |      git switch worker2                       - Nos aseguramos de tener worker2 como rama activa.
                                                              |      git add fuckingCode.js                   - Seleccionamos los archivos de la entrega.
                                                              |      git commit -m "The fucking functions."   - Creamos la entrga.
                                                              |      git push origin worker2                  - Eventualmente, sincronizamos las entregas de nuestra rama local con nuestra rama remota.
                                                              |
-                                                             * Worker1 inicia la tarea c despues de recibir la b desde devel
+                                                            (2) Worker1 inicia la tarea c despues de recibir la b desde devel
+                                                               Repite estos pasos para entregar cada progreso a lo largo de la tarea.
                                                                git switch worker1                       - Nos aseguramos de tener worker2 como rama activa.
                                                                git add fuckingLibrary.js                - Seleccionamos los archivos de la entrega.
                                                                git commit -m "The fucking library."     - Creamos la entrga.
                                                                git push origin worker1                  - Eventualmente, sincronizamos las entregas de nuestra rama local con nuestra rama remota.
 
 ```
+
 ## Resumiendo
-* Antes de empezar una tarea, actualiza en tu rama las entregas de devel para contar con las aportaciones de tus compañeros.
-* Realiza en tu rama todos los commits para la nueva tarea. Eventualmente sincroniza tus entregas con tu rama remota.
-* Cuando hayas realizado el último commit de una tarea, entrega todos los commits desde tu rama a devel.
+* Antes de empezar una tarea, actualiza en tu rama las entregas de devel para contar con las aportaciones de tus compañeros (1).
+* Realiza en tu rama todos los commits para la nueva tarea. Eventualmente sincroniza tus entregas con tu rama remota (2).
+* Cuando hayas realizado el último commit de una tarea, entrega todos los commits desde tu rama a devel (3).
 * Empieza otra vez el ciclo.
-* Cuando todas las tareas estén listas y revisadas en devel, pasamos todos los commits de devel a main.
+* Cuando todas las tareas estén listas y revisadas en devel, pasamos todos los commits de devel a main (4).
                                                                         
 ## Post data
 ¿Has visto algún error o se te ocurre una mejora? Tienes dos opciones:
